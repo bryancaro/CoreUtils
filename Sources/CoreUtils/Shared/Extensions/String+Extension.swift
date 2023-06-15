@@ -14,8 +14,14 @@ import Foundation
 
 public extension String {
     /// Returns a localized version of the string
-    var localized: String {
-        NSLocalizedString(self, comment: "")
+    func localized(for bundle: Bundle = .main) -> String {
+        var localizedString = NSLocalizedString(self, bundle: bundle, comment:"")
+        localizedString = localizedString.replacingOccurrences(of: "%s", with: "%@")
+        localizedString = localizedString.replacingOccurrences(of: "%1$s", with: "%@")
+        localizedString = localizedString.replacingOccurrences(of: "%2$s", with: "%@")
+        localizedString = localizedString.replacingOccurrences(of: "%3$s", with: "%@")
+        localizedString = localizedString.replacingOccurrences(of: "%4$s", with: "%@")
+        return localizedString
     }
 
     /// Checks if a string contains only digits
