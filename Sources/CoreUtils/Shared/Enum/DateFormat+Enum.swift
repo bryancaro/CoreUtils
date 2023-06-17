@@ -18,5 +18,5 @@ public enum DateFormat: String {
     case rss = "EEE, d MMM yyyy HH:mm:ss Z"
     case altRSS = "d MMM yyyy HH:mm:ss Z"
     case httpHeader = "EEE, dd MMM yyyy HH:mm:ss zzz"
-    case customFormat = "your_custom_date_format_here"
+    case customFormat = "yyyy-MM-dd"
 }
