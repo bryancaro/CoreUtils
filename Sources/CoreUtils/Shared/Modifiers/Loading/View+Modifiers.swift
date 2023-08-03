@@ -15,11 +15,19 @@ public struct LoadingModifier: ViewModifier {
     }
 
     public func body(content: Content) -> some View {
-        if isLoading {
-            return AnyView(content.overlay(ProgressView()))
-        } else {
-            return AnyView(content)
-        }
+        content
+            .overlay(
+                ZStack {
+                    if isLoading {
+                        Color.black.opacity(0.5)
+                            .edgesIgnoringSafeArea(.all)
+
+                        ProgressView()
+                            .tint(.white)
+                            .transition(.opacity)
+                    }
+                }
+            )
     }
 }
 
