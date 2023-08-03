@@ -7,10 +7,14 @@
 
 import SwiftUI
 
-struct LoadingModifier: ViewModifier {
+public struct LoadingModifier: ViewModifier {
     @Binding var isLoading: Bool
 
-    func body(content: Content) -> some View {
+    public init(isLoading: Binding<Bool>) {
+        self._isLoading = isLoading
+    }
+
+    public func body(content: Content) -> some View {
         if isLoading {
             return AnyView(content.overlay(ProgressView()))
         } else {
@@ -19,8 +23,9 @@ struct LoadingModifier: ViewModifier {
     }
 }
 
-extension View {
+public extension View {
     func loading(isLoading: Binding<Bool>) -> some View {
         self.modifier(LoadingModifier(isLoading: isLoading))
     }
 }
+
