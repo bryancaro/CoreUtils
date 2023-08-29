@@ -172,3 +172,20 @@ public enum AppleDevice: String {
 
     case unknown = ""
 }
+
+public extension AppleDevice {
+    static let scrollDevices: [AppleDevice] = [iPhone6S,
+                                               iPhoneSE1stGen,
+                                               iPhone7GSM,
+                                               iPhone7Global,
+                                               iPhone8GSM,
+                                               iPhoneXGlobal,
+                                               iPhone8CDMA,
+                                               iPhoneXGSM,
+                                               iPhoneXS,
+                                               iPhoneXR,
+                                               iPhoneSE2ndGen,
+                                               iPhone12Mini,
+                                               iPhone13Mini,
+                                               iPhoneSE3rdGen]
+}
